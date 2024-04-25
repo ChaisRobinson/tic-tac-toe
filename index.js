@@ -1,5 +1,7 @@
 // TIC TAC TOE
 // Play Tic Tac Toe by clicking on an empty cell
+
+// Select the status display
 const statusDisplay = document.querySelector(".gameStatus");
 // Select all the cells
 let gameActive = true;
