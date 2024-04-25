@@ -33,18 +33,18 @@ const winningConditions = [
 ];
 
 // function to play the game
-function handleCellPlayed(clickedCell, clickedCellIndex) {
+const handleCellPlayed = (clickedCell, clickedCellIndex) => {
   gameState[clickedCellIndex] = currentPlayer;
   clickedCell.innerHTML = currentPlayer;
-}
+};
 //function to change the player
-function handlePlayerChange() {
+const handlePlayerChange = () => {
   currentPlayer = currentPlayer === "X" ? "O" : "X";
   statusDisplay.innerHTML = currentPlayerTurn();
-}
+};
 
 //function to check if the game is over
-function handleResultValidation() {
+const handleResultValidation = () => {
   let roundWon = false;
   for (let i = 0; i <= 7; i++) {
     const winCondition = winningConditions[i];
@@ -74,10 +74,10 @@ function handleResultValidation() {
   }
 
   handlePlayerChange();
-}
+};
 
 //function to handle click events
-function handleCellClick(clickCellEvent) {
+const handleCellClick = (clickCellEvent) => {
   const clickedCell = clickCellEvent.target;
   const clickedCellIndex = parseInt(
     clickedCell.getAttribute("data-cell-index")
@@ -87,16 +87,16 @@ function handleCellClick(clickCellEvent) {
   }
   handleCellPlayed(clickedCell, clickedCellIndex);
   handleResultValidation();
-}
+};
 
 //function to handle restart button
-function handleRestartGame() {
+const handleRestartGame = () => {
   gameActive = true;
   currentPlayer = "X";
   gameState = ["", "", "", "", "", "", "", "", ""];
   statusDisplay.innerHTML = currentPlayerTurn();
   document.querySelectorAll(".cell").forEach((cell) => (cell.innerHTML = ""));
-}
+};
 
 //Add event listeners
 document
